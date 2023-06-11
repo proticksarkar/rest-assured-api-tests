@@ -1,0 +1,1 @@
+This repository holds the API automation test framework, developed using REST Assured, and API automation tests, developed using TestNG, to test Spotify App.
