@@ -1,0 +1,31 @@
+name: E2E API Tests CI
+
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup project dependencies
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        maven-version: '3.8.5'
+        distribution: 'temurin'
+    - name: Build project
+      run: mvn clean install
+    - name: Run tests
+      run: mvn test
+    - name: Publish report as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: extent-report
+        path: target/extent-reports/test_execution_report.html
+    - name: Deploy report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: target/extent-reports
