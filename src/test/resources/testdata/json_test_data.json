@@ -1,0 +1,14 @@
+{
+  "playlist_request_payload": [
+    {
+      "name": "Playlist name - first data from json",
+      "description": "Playlist description - first data from json",
+      "public": "false"
+    },
+    {
+      "name": "Playlist name - second data from json",
+      "description": "Playlist description - second data from json",
+      "public": "false"
+    }
+  ]
+}

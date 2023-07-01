@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SpotifyTestSuite">
+    <listeners>
+        <listener class-name="com.apiautomationtestframework.listeners.TestListener"/>
+    </listeners>
+
+    <test name="SpotifyTests" parallel="methods" thread-count="5">
+        <classes>
+            <class name="com.spotify.tests.PlaylistTests"/>
+            <class name="com.spotify.tests.PlaylistTestsUsingPropertiesData"/>
+            <class name="com.spotify.tests.PlaylistTestsUsingExcelData"/>
+            <class name="com.spotify.tests.PlaylistTestsUsingJsonData"/>
+        </classes>
+    </test> <!-- SpotifyTests -->
+</suite> <!-- SpotifyTestSuite -->

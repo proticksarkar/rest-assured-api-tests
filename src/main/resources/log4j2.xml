@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="basePath">./target/logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="Time_Stamp=%d{HH:mm:ss.SSS}  Thread_Id=%tid  Thread_Name=%tn  Log_Level=%-5level  Message => %msg%n"/>
+        </Console>
+
+        <RollingFile name="File" filePattern="${basePath}/test_execution_log-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="Time_Stamp=%d{HH:mm:ss.SSS}  Thread_Id=%tid  Thread_Name=%tn  Log_Level=%-5level  Message => %msg%n"/>
+            <SizeBasedTriggeringPolicy size="50000" />
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="Debug"><!-- Here you can use multiple log levels All < Trace < Debug < Info < Warn < Error < Fatal < Off -->
+            <AppenderRef ref="File"/>  <!-- <AppenderRef ref="Console"/> -->
+        </Root>
+    </Loggers>
+
+</Configuration>
